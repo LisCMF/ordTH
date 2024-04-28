@@ -1,8 +1,10 @@
 // dependencies
 const fs = require('fs');
+const express = require('express');
 const app = require('express')();
 const http = require('http').createServer(app);
 const path = require('path');
+
 
 const localhostRegex = /http:\/\/localhost/
 const io = require('socket.io')(http, {
@@ -29,6 +31,9 @@ orders.forEach(order => {
   }
 });
 
+
+
+app.use(express.static(path.resolve(__dirname, '../src')));
 
 // route handlers
 app.get('/', (req, res) => {
