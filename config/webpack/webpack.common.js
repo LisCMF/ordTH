@@ -14,6 +14,12 @@ module.exports = {
     path: path.resolve(__dirname, '../../dist'),
     filename: '[name].js', // 'bundle.js',
   },
+
+  // resolvable extensions
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js"],
+  },
   
   // Loaders
   module: {
@@ -44,6 +50,14 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+      },
+      { 
+        test: /\.tsx?$/, 
+        loader: "ts-loader" 
+      },
+      { // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
+        test: /\.js$/, 
+        loader: "source-map-loader" 
       },
       {
         test: /\.js$/,

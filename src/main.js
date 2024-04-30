@@ -1,5 +1,5 @@
 // import React from "react";
-import {test} from './test.js';
+import {test} from './test.ts';
 import {io} from 'socket.io-client';
 
 // test connection with index.html
