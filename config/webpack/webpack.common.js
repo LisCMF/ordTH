@@ -36,20 +36,8 @@ module.exports = {
         // checks for the files with the css extension
         test: /\.s[ac]ss$/i,
         // applies loader functionality in the order in the array
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
-    //   {
-    //     test: /\.css$/i,
-    //     // Loader for webpack to process CSS with PostCSS
-    //     loader: 'postcss-loader',
-    //     options: {
-    //       postcssOptions: {
-    //         plugins: [
-    //           autoprefixer
-    //         ]
-    //       }
-    //     }
-    //   },
       {
         test: /\.s[ac]ss$/i,
         // Loads a SASS/SCSS file and compiles it to CSS

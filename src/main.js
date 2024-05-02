@@ -13,9 +13,8 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 import {io} from 'socket.io-client';
 
-
-// import static files
-import {test} from './test.ts';
+// global styles
+import './assets/style/style.scss';
 
 // import container
 import MainContainer from './container/MainContainer.jsx'
