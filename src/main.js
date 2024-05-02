@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ * @module  main
+ * @author  LisCMF
+ * @date    02/02/2024
+ * @description module that creates the root of the react application & initiate the rendering process
+ * ************************************
+ */
+
+
 // dependencies 
 import React from "react";
 import { createRoot } from 'react-dom/client';
@@ -9,7 +19,6 @@ import {test} from './test.ts';
 
 // import container
 import MainContainer from './container/MainContainer.jsx'
-
 
 // stablish socket connection
 const socket = io();
