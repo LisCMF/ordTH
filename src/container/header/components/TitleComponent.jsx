@@ -8,9 +8,12 @@
  */
 
 // dependencies
+
 import React from "react";
 
-// components
+
+// images
+const icon = '../../../assets/images/order_manger_icon.PNG';
 
 // utilities
 
@@ -19,8 +22,9 @@ import React from "react";
 // component
 export default function TitleComponent () {
   return (
-    <div id='TitleComponent'>
-      <p>--TitleComponent</p>
-    </div>
+    <>
+      <img id="imageIcon" src={icon}/>
+      <header id='TitleComponentHeader'></header>
+    </>
   )
 }

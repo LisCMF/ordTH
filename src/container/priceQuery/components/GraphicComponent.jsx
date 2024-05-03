@@ -19,8 +19,8 @@ import React from "react";
 // component
 export default function GraphicComponent () {
   return (
-    <div id='GraphicComponent'>
-      <p>--GraphicComponent</p>
+    <div id='GraphicComponent' className="roundDiv">
+      <p>GC-TBD</p>
     </div>
   )
 }

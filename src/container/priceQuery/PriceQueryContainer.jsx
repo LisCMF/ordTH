@@ -22,8 +22,7 @@ import QueryComponent from "./components/QueryComponent.jsx";
 // component
 export default function PriceQueryContainer () {
   return (
-    <div id='PriceQueryContainer'>
-      <p>-PriceQueryContainer</p>
+    <div id='PriceQueryContainerDiv'>
       <CountComponent/>
       <GraphicComponent/>
       <QueryComponent/>

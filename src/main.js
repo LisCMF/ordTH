@@ -31,7 +31,6 @@ const root = createRoot(document.getElementById('root'));
 // Render main React component 
 root.render(
   <>
-    <p>"XXX in main.js file !!!"</p>
     <MainContainer/>
   </>
 )

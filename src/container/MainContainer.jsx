@@ -23,9 +23,10 @@ import TableContainer from "./table/TableContainer.jsx";
 export default function MainContainer () {
   return (
     <div id='MainContainer'>
-      <p>MainContainer</p>
-      <HeaderContainer/>
-      <PriceQueryContainer/>
+      <div id='mainContainerTopDiv'>
+        <HeaderContainer/>
+        <PriceQueryContainer/>
+      </div>
       <TableContainer/>
     </div>
   )

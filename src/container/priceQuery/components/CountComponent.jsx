@@ -19,8 +19,9 @@ import React from "react";
 // component
 export default function CountComponent () {
   return (
-    <div id='CountComponent'>
-      <p>--CountComponent</p>
+    <div id='CountComponentDiv' className="roundDiv">
+      <h3>15</h3>
+      <p>orders</p>
     </div>
   )
 }

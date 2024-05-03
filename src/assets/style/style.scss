@@ -1,8 +1,64 @@
+$greenGray: rgb(140, 159, 140);
+
 body {
  padding: 5%;
  padding-top: 2%;
- color: rgb(60, 59, 59);
- background-color:rgb(161, 59, 59);
+//  color: 
+//  background-color:rgb(161, 59, 59);
  font-family: Roboto;
 }
+
+#mainContainerTopDiv{
+  display: flex;
+
+  #HeaderContainerDiv{
+    background-color: lighten($greenGray, 30%);
+    border-bottom-right-radius: 7.5vw;
+    width: 20vw;
+
+    img{
+      width: 60%;
+      margin: 20%; 
+    }
+  }
+
+  #PriceQueryContainerDiv{
+    display: flex;
+    height: 15vw;
+    width: 75vw;
+    margin-left: 15vw;
+
+    border-bottom-left-radius: 7.5vw;
+    border-top-left-radius: 7.5vw;
+    border: 0.5rch solid lighten($greenGray, 30%);
+    border-style: solid none solid solid;
+
+    align-self:self-end;
+    justify-content: space-between;
+    
+    
+    .roundDiv{
+      background-color: lighten($greenGray, 10%);
+      height: 100%;
+      width: 15vw;
+      border-radius: 50%;
+      text-align: center;
+      justify-content: center;
+      
+      h3 {
+        font-size: 5rem;
+        margin: 0.15rem;
+      }
+
+      p {
+        font-size: 2rem;
+        margin-top: 0;
+      }
+    }
+
+
+  }
+
+}
+
 

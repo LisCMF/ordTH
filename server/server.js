@@ -31,8 +31,6 @@ orders.forEach(order => {
   }
 });
 
-
-
 app.use(express.static(path.resolve(__dirname, '../src')));
 
 // route handlers

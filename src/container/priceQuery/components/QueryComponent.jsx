@@ -8,7 +8,7 @@
  */
 
 // dependencies
-import React from "react";
+import React, { useActionState } from "react";
 
 // components
 
@@ -18,9 +18,18 @@ import React from "react";
 
 // component
 export default function QueryComponent () {
+  // action function that update the rows to be display
+  // async function updateOrdersQuery(ordersQuery) {
+  //   return ordersQuery + 1;
+  // }
+  // const [ordersQuery, ordersQueryFormAction] = useActionState(updateOrdersQuery, 0);
   return (
-    <div id='QueryComponent'>
-      <p>--QueryComponent</p>
+    <div id='QueryComponent' className="roundDiv">
+      {/* <form id='QueryComponent' >
+        <label>{ordersQuery}</label>
+        
+      </form> */}
+      <p>select target price</p>
     </div>
   )
 }

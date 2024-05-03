@@ -20,8 +20,7 @@ import TitleComponent from "./components/TitleComponent.jsx";
 // component
 export default function HeaderContainer () {
   return (
-    <div id='HeaderContainer'>
-      <p>-HeaderContainer</p>
+    <div id='HeaderContainerDiv'>
       <TitleComponent/>
     </div>
   )
