@@ -8,7 +8,7 @@
  */
 
 // dependencies
-import React from "react";
+import React, { useState , useEffect } from "react";
 
 // components
 import TitleTableContainer from "./title/TitleTableContainer.jsx";
@@ -19,12 +19,26 @@ import RowsContainer from "./rows/RowsContainer.jsx";
 // interfaces & types
 
 // component
-export default function TableContainer () {
+export default function TableContainer({ ordersObj, setOrderCount, targetPrice }) {
+
+  // Compute rows based on ordersObj
+  const rowArray = Object.values(ordersObj).map(({ id, item, event_name, customer, destination, sent_at_second, price }) => {
+    if (targetPrice === '') {
+      return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
+    } else if (targetPrice === price) {
+      return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
+    }
+  });
+
+  useEffect(() => {
+    setOrderCount(rowArray.length);
+  }, [rowArray]);
+
   return (
     <div id='TableContainer'>
       <p>-TableContainer</p>
-      <TitleTableContainer/>
-      <RowsContainer/>
+      <TitleTableContainer />
+      {rowArray}
     </div>
-  )
+  );
 }

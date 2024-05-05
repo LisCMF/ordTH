@@ -8,7 +8,7 @@
  */
 
 // dependencies
-import React, { useActionState } from "react";
+import React, { useActionState, useState } from "react";
 
 // components
 
@@ -17,19 +17,28 @@ import React, { useActionState } from "react";
 // interfaces & types
 
 // component
-export default function QueryComponent () {
+export default function QueryComponent ({ setTargetPrice }) {
+  // use state
+
   // action function that update the rows to be display
-  // async function updateOrdersQuery(ordersQuery) {
-  //   return ordersQuery + 1;
+  // async function updateOrdersQuery(targetPrice) {
+  //   return targetPrice + ' updated';
   // }
-  // const [ordersQuery, ordersQueryFormAction] = useActionState(updateOrdersQuery, 0);
+  
+  // const [targetPrice, ordersQueryFormAction] = useActionState(updateOrdersQuery, 'target');
+  
+  const handleInputValueUpdates = (event) => {
+    const { value } = event.target;
+    setTargetPrice(Number(value));
+  };
+
   return (
-    <div id='QueryComponent' className="roundDiv">
-      {/* <form id='QueryComponent' >
-        <label>{ordersQuery}</label>
-        
-      </form> */}
-      <p>select target price</p>
+    <div id='QueryComponent'>
+      <form id='QueryComponent' >
+        <label>target price</label>
+        {/* <button formAction={ordersQueryFormAction}>targetPrice</button> */}
+        <input type="number" placeholder='00.00' onInput={handleInputValueUpdates}/>
+      </form> 
     </div>
   )
 }

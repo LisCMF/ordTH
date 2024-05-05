@@ -17,11 +17,13 @@ import React from "react";
 // interfaces & types
 
 // component
-export default function CountComponent () {
+export default function CountComponent ({ orderCount }) {
   return (
-    <div id='CountComponentDiv' className="roundDiv">
-      <h3>15</h3>
+    <>
+      <div id='CountComponentDiv' className="roundDiv">
+        <h3>{orderCount}</h3>
+      </div>
       <p>orders</p>
-    </div>
+    </>
   )
 }

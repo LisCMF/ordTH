@@ -20,12 +20,12 @@ import QueryComponent from "./components/QueryComponent.jsx";
 // interfaces & types
 
 // component
-export default function PriceQueryContainer () {
+export default function PriceQueryContainer ({ orderCount, setTargetPrice }) {
   return (
     <div id='PriceQueryContainerDiv'>
-      <CountComponent/>
+      <CountComponent orderCount={orderCount}/>
       <GraphicComponent/>
-      <QueryComponent/>
+      <QueryComponent setTargetPrice={setTargetPrice}/>
     </div>
   )
 }

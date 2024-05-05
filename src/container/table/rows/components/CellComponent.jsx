@@ -18,10 +18,10 @@ import React from "react";
 // interfaces & types
 
 // component
-export default function CellComponent () {
+export default function CellComponent ({className, displayValue}) {
   return (
-    <div id='CellComponent'>
-      <p>---CellComponent</p>
+    <div className={`${className} CellComponentDiv`}>
+      {displayValue}
     </div>
   )
 }
