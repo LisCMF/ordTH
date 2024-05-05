@@ -25,43 +25,34 @@ const socket = io.connect('http://localhost:4000/');
 
 // component
 export default function MainContainer () {
-  const [ordersObj, setOrdersObj] = useState({}); // State of orders
+  const [ordersObj, setOrdersObj] = useState(new Map()); // State of orders
   const [orderCount, setOrderCount] = useState(0); // State of number of orders rendered
   const [targetPrice, setTargetPrice] = useState(''); // State of target price to query orders
 
   useEffect(() => {
-
     socket.on('order_event', (orderEvents) => {
-      // console.log('Received order event', data);
-      const incomingOrdersObj = {};
+      const incomingOrdersObj = new Map()
       
       // Update incomingOrdersObj with new events
       orderEvents.forEach(event => { 
-        incomingOrdersObj[event.id] = event;
+        incomingOrdersObj.set(event.id, event);
       });
 
-      // Update ordersObj state
-      setOrdersObj(currentOrders => ({
-        ...currentOrders,
-        ...incomingOrdersObj
-      }));
-      
+      setOrdersObj(currentOrders => new Map([...currentOrders, ...incomingOrdersObj]));  
     });
-
-    
 
     return () => {
       socket.disconnect(); // Clean up socket connection on unmount
     };
   }, [socket]);
 
+
   return (
     <div id='MainContainer'>
       <div id='mainContainerTopDiv'>
         <HeaderContainer/>
-        {/* <PriceQueryContainer/> */}
+        <PriceQueryContainer orderCount={orderCount} setTargetPrice={setTargetPrice}/>
       </div>
-      <PriceQueryContainer orderCount={orderCount} setTargetPrice={setTargetPrice}/>
       <p>{targetPrice} is the target Price</p>
       <TableContainer ordersObj={ordersObj} setOrderCount={setOrderCount} targetPrice={targetPrice}/>
     </div>

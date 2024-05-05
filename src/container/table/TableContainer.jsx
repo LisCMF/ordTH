@@ -19,10 +19,10 @@ import RowsContainer from "./rows/RowsContainer.jsx";
 // interfaces & types
 
 // component
-export default function TableContainer({ ordersObj, setOrderCount, targetPrice }) {
+export default function TableContainer({ ordersObj, setOrderCount, targetPrice }) {  
 
-  // Compute rows based on ordersObj
-  const rowArray = Object.values(ordersObj).map(({ id, item, event_name, customer, destination, sent_at_second, price }) => {
+  // create the array or orders to render
+  const rowArray = Array.from(ordersObj.values()).map(({ id, item, event_name, customer, destination, sent_at_second, price }) => {
     if (targetPrice === '') {
       return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
     } else if (targetPrice === price) {
@@ -30,6 +30,7 @@ export default function TableContainer({ ordersObj, setOrderCount, targetPrice }
     }
   });
 
+  // update OrderCount base on the current number of order rendered
   useEffect(() => {
     setOrderCount(rowArray.length);
   }, [rowArray]);
