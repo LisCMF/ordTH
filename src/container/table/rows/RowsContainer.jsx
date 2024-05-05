@@ -20,8 +20,8 @@ import CellComponent from "./components/CellComponent.jsx";
 // component
 export default function RowsContainer (props) {
   // render a cell per prop
-  const cellArr = Object.entries(props).map(([propLabel, displayValue] )=> {
-    return <CellComponent className={`cell-${propLabel}`} displayValue={displayValue}/>
+  const cellArr = Object.entries(props).map(([propLabel, displayValue], ind)=> {
+    return <CellComponent key={ind} className={`cell-${propLabel}`} displayValue={displayValue}/>
   });
   
   return (

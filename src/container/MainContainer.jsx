@@ -16,7 +16,10 @@ import HeaderContainer from "./header/HeaderContainer.jsx";
 import PriceQueryContainer from "./priceQuery/PriceQueryContainer.jsx";
 import TableContainer from "./table/TableContainer.jsx";
 
-// utilities
+// utilities 
+
+// connections
+const socket = io.connect('http://localhost:4000/');
 
 // interfaces & types
 
@@ -27,14 +30,13 @@ export default function MainContainer () {
   const [targetPrice, setTargetPrice] = useState(''); // State of target price to query orders
 
   useEffect(() => {
-    const socket = io();
 
-    socket.on('order_event', (data) => {
+    socket.on('order_event', (orderEvents) => {
       // console.log('Received order event', data);
       const incomingOrdersObj = {};
       
       // Update incomingOrdersObj with new events
-      data.forEach(event => { 
+      orderEvents.forEach(event => { 
         incomingOrdersObj[event.id] = event;
       });
 
@@ -43,12 +45,15 @@ export default function MainContainer () {
         ...currentOrders,
         ...incomingOrdersObj
       }));
+      
     });
+
+    
 
     return () => {
       socket.disconnect(); // Clean up socket connection on unmount
     };
-  }, []);
+  }, [socket]);
 
   return (
     <div id='MainContainer'>
