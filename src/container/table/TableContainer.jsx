@@ -8,7 +8,7 @@
  */
 
 // dependencies
-import React, { useState , useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 // components
 import TitleTableContainer from "./title/TitleTableContainer.jsx";
@@ -19,21 +19,25 @@ import RowsContainer from "./rows/RowsContainer.jsx";
 // interfaces & types
 
 // component
-export default function TableContainer({ ordersObj, setOrderCount, targetPrice }) {  
-
+export default function TableContainer({ ordersObj, setOrderCount, targetPrice }) {
+  // Use useMemo to compute rowArray only when ordersObj or targetPrice changes
+  let newCount = 0;
   // create the array or orders to render
-  const rowArray = Array.from(ordersObj.values()).map(({ id, item, event_name, customer, destination, sent_at_second, price }) => {
-    if (targetPrice === '') {
-      return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
-    } else if (targetPrice === price) {
-      return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
-    }
-  });
+  const rowArray = useMemo(() => {
+    return Array.from(ordersObj.values()).map(({ id, item, event_name, customer, destination, sent_at_second, price }) => {
+      if (targetPrice === 0 || targetPrice === price) {
+        newCount++;
+        return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
+      }; 
+      return null;
+    })
+  })
 
   // update OrderCount base on the current number of order rendered
   useEffect(() => {
-    setOrderCount(rowArray.length);
-  }, [rowArray]);
+      setOrderCount(currentCount => newCount)
+    }
+  ,[rowArray]);  
 
   return (
     <div id='TableContainer'>
@@ -43,3 +47,37 @@ export default function TableContainer({ ordersObj, setOrderCount, targetPrice }
     </div>
   );
 }
+
+/**
+ * 
+export default function TableContainer({ ordersObj, setOrderCount, targetPrice }) {  
+
+  let newCount = 0;
+  // create the array or orders to render
+  const rowArray = Array.from(ordersObj.values()).map(({ id, item, event_name, customer, destination, sent_at_second, price }) => {
+    if (targetPrice === 0 || targetPrice === '') {
+      newCount++;
+      return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
+    } else if (targetPrice === price) {
+      newCount++;
+      return <RowsContainer key={id} id={id} item={item} event_name={event_name} customer={customer} destination={destination} sent_at_second={sent_at_second} price={price} />
+    }
+  });
+
+  console.log('rowArray.length --> ', rowArray.length, '\n rowArray  -->'. rowArray);
+
+  // update OrderCount base on the current number of order rendered
+  useEffect(() => {
+      setOrderCount(currentCount => newCount)
+    }
+  ,[rowArray]);  
+
+  return (
+    <div id='TableContainer'>
+      <p>-TableContainer</p>
+      <TitleTableContainer />
+      {rowArray}
+    </div>
+  );
+}
+ */

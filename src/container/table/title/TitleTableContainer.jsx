@@ -8,7 +8,7 @@
  */
 
 // dependencies
-import React from "react";
+import React, { memo } from "react";
 
 // components
 import ColumnTitleComponent from "./components/ColumnTitleComponent.jsx";
@@ -18,11 +18,13 @@ import ColumnTitleComponent from "./components/ColumnTitleComponent.jsx";
 // interfaces & types
 
 // component
-export default function TitleTableContainer () {
+const TitleTableContainer = memo(() => {
   return (
     <div id='TitleTableContainer'>
       <p>--TitleTableContainer</p>
       <ColumnTitleComponent/>
     </div>
   )
-}
+})
+
+export default TitleTableContainer;

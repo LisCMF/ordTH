@@ -8,7 +8,7 @@
  */
 
 // dependencies
-import React from "react";
+import React, {memo} from "react";
 
 // components
 import CellComponent from "./components/CellComponent.jsx";
@@ -18,7 +18,7 @@ import CellComponent from "./components/CellComponent.jsx";
 // interfaces & types
 
 // component
-export default function RowsContainer (props) {
+const RowsContainer =  memo((props) => {
   // render a cell per prop
   const cellArr = Object.entries(props).map(([propLabel, displayValue], ind)=> {
     return <CellComponent key={ind} className={`cell-${propLabel}`} displayValue={displayValue}/>
@@ -29,4 +29,6 @@ export default function RowsContainer (props) {
       {cellArr}
     </div>
   )
-}
+})
+
+export default RowsContainer;

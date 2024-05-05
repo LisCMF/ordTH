@@ -23,7 +23,7 @@ export default function CountComponent ({ orderCount }) {
       <div id='CountComponentDiv' className="roundDiv">
         <h3>{orderCount}</h3>
       </div>
-      <p>orders</p>
+      {/* <p>orders</p> */}
     </>
   )
 }

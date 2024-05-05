@@ -27,7 +27,7 @@ const socket = io.connect('http://localhost:4000/');
 export default function MainContainer () {
   const [ordersObj, setOrdersObj] = useState(new Map()); // State of orders
   const [orderCount, setOrderCount] = useState(0); // State of number of orders rendered
-  const [targetPrice, setTargetPrice] = useState(''); // State of target price to query orders
+  const [targetPrice, setTargetPrice] = useState(0); // State of target price to query orders
 
   useEffect(() => {
     socket.on('order_event', (orderEvents) => {
@@ -46,6 +46,7 @@ export default function MainContainer () {
     };
   }, [socket]);
 
+  console.log('ordersObj --> ', ordersObj);
 
   return (
     <div id='MainContainer'>

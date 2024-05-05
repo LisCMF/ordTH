@@ -8,20 +8,20 @@
  */
 
 // dependencies
-import React from "react";
-
+import React, {memo} from "react";
 // components
-
 
 // utilities
 
 // interfaces & types
 
 // component
-export default function CellComponent ({className, displayValue}) {
+const CellComponent = memo(({className, displayValue}) => {
   return (
     <div className={`${className} CellComponentDiv`}>
       {displayValue}
     </div>
   )
-}
+})
+
+export default CellComponent;
