@@ -12,7 +12,6 @@ import React from "react";
 
 // components
 import CountComponent from "./components/CountComponent.jsx";
-import GraphicComponent from "./components/GraphicComponent.jsx";
 import QueryComponent from "./components/QueryComponent.jsx";
 
 // utilities
@@ -24,7 +23,6 @@ export default function PriceQueryContainer ({ orderCount, setTargetPrice }) {
   return (
     <div id='PriceQueryContainerDiv'>
       <CountComponent orderCount={orderCount}/>
-      <GraphicComponent/>
       <QueryComponent setTargetPrice={setTargetPrice}/>
     </div>
   )

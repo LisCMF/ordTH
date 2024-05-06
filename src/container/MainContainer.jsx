@@ -46,15 +46,13 @@ export default function MainContainer () {
     };
   }, [socket]);
 
-  console.log('ordersObj --> ', ordersObj);
-
   return (
     <div id='MainContainer'>
       <div id='mainContainerTopDiv'>
-        <HeaderContainer/>
+        <HeaderContainer/> 
+        <h1 id='orderManagerH1'>Order Manager</h1>
         <PriceQueryContainer orderCount={orderCount} setTargetPrice={setTargetPrice}/>
       </div>
-      <p>{targetPrice} is the target Price</p>
       <TableContainer ordersObj={ordersObj} setOrderCount={setOrderCount} targetPrice={targetPrice}/>
     </div>
   )

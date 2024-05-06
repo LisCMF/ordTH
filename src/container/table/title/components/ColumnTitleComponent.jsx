@@ -17,10 +17,10 @@ import React from "react";
 // interfaces & types
 
 // component
-export default function ColumnTitleComponent () {
+export default function ColumnTitleComponent ({titleText, columnClass}) {
   return (
-    <div id='ColumnTitleComponent'>
-      <p>---ColumnTitleComponent</p>
-    </div>
-  )
-}
+    <th id={titleText} className={columnClass + ' thColumnTitleComponent'}>
+      {titleText}
+    </th>
+  );
+};

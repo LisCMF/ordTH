@@ -7,7 +7,7 @@
  * ************************************
  */
 
-// dependencies
+// Streach feature
 import React from "react";
 
 // components

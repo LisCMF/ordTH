@@ -31,7 +31,7 @@ export default function TableContainer({ ordersObj, setOrderCount, targetPrice }
       }; 
       return null;
     })
-  })
+  }, [ordersObj, targetPrice]);
 
   // update OrderCount base on the current number of order rendered
   useEffect(() => {
@@ -40,11 +40,14 @@ export default function TableContainer({ ordersObj, setOrderCount, targetPrice }
   ,[rowArray]);  
 
   return (
-    <div id='TableContainer'>
-      <p>-TableContainer</p>
-      <TitleTableContainer />
-      {rowArray}
-    </div>
+    <table id='tableContainer'>
+      <thead>
+        <TitleTableContainer/>
+      </thead>
+      <tbody>
+        {rowArray}
+      </tbody>
+    </table>
   );
 }
 

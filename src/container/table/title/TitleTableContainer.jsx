@@ -18,12 +18,28 @@ import ColumnTitleComponent from "./components/ColumnTitleComponent.jsx";
 // interfaces & types
 
 // component
-const TitleTableContainer = memo(() => {
+const TitleTableContainer = memo(({}) => {
+  // array of column's titles and related cell category
+  const tableTitles = [
+    ['Order ID', 'id'], 
+    ['Item', 'item'], 
+    ['Order Status', 'event_name'], 
+    ['Customer', 'customer'], 
+    ['Destination', 'destination'], 
+    ['Time of Placement', 'sent_at_second'], 
+    ['Price $US', 'price']
+  ];
+ 
+ 
+  const arrOfColumnTitleComponents = tableTitles.map(([titleText, cellType], ind) => {
+    return <ColumnTitleComponent key={ind} titleText={titleText} columnClass={`column-${cellType}`}/> 
+  })
+
+
   return (
-    <div id='TitleTableContainer'>
-      <p>--TitleTableContainer</p>
-      <ColumnTitleComponent/>
-    </div>
+    <tr id='trTitleTableContainer'>
+      {arrOfColumnTitleComponents}
+    </tr>
   )
 })
 

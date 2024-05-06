@@ -17,10 +17,14 @@ import React, {memo} from "react";
 
 // component
 const CellComponent = memo(({className, displayValue}) => {
+  if (displayValue[6]==='_') {
+    displayValue = displayValue.substring(0, 5) + ' ' + displayValue.substring(7);
+  };
+
   return (
-    <div className={`${className} CellComponentDiv`}>
+    <td className={`${className} cell`}>
       {displayValue}
-    </div>
+    </td>
   )
 })
 
