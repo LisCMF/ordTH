@@ -8,7 +8,6 @@ $blue3: #88ACFF;
 $purple4: #AC9FED;
 $purple5: #C194DF;
 
-
 body {
  padding: 5%;
  padding-top: 2%;
@@ -41,11 +40,10 @@ body {
 
   #PriceQueryContainerDiv{
     color: darken($baseGray, 50%);
-
     display: flex;
-    height: 3.5vw;
+    height: 2rem;
     width: 60vw;
-    padding: 0.4vw;
+    padding: 0.5rem;
 
     border-bottom-left-radius: 7.5vw;
     border-top-left-radius: 7.5vw;
@@ -57,9 +55,8 @@ body {
     align-items: center;
         
     #CountComponentDiv{
-      height: 3.25vw;
+      display: flex;
       margin-left: 2rem;
-      margin-bottom: 1rem;
       
       span {
         font-size: 1.5rem;  
@@ -67,14 +64,17 @@ body {
       }
 
       p {
+        display: block;
         font-size: 0.8rem;
       }
     }
 
     #QueryComponentForm{
       align-items: center;
+      display: flex;
 
       #targetPriceLabel {
+        display: block;
         font-size: 0.8rem;
       }
 
@@ -83,6 +83,7 @@ body {
         background-color: $baseGray;
         border: 0;
         height: 1.75rem;
+        width: 100%;
         padding: 0.25rem;
 
         &:hover {
