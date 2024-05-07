@@ -1,5 +1,4 @@
 $greenGray: rgb(140, 159, 140);
-
 $baseGray: #D4D9DF;
 $cancelGray: #9AA8B6;
 $green0:#55bd00;
@@ -13,8 +12,6 @@ $purple5: #C194DF;
 body {
  padding: 5%;
  padding-top: 2%;
-//  color: 
-//  background-color: black;
  font-family: Roboto;
 }
 
@@ -22,10 +19,10 @@ body {
   display: flex;
 
   #orderManagerH1 {
-    color: darken($baseGray, 30%);
+    color: darken($baseGray, 20%);
     margin: 2%;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   #HeaderContainerDiv{
@@ -34,6 +31,7 @@ body {
     border-bottom-right-radius: 7.5vw;
     width: 10vw;
     height: 15vw;
+    margin-left: 1%;
 
     img{
       width: 60%;
@@ -42,11 +40,13 @@ body {
   }
 
   #PriceQueryContainerDiv{
+    color: darken($baseGray, 50%);
+
     display: flex;
-    height: 7vw;
-    width: 75vw;
-    margin-left: 15vw;
-    margin-bottom: 2rem;
+    height: 3.5vw;
+    width: 60vw;
+    padding: 0.4vw;
+
     border-bottom-left-radius: 7.5vw;
     border-top-left-radius: 7.5vw;
     border: 0.5rch solid lighten($baseGray, 10%);
@@ -54,30 +54,47 @@ body {
 
     align-self:self-end;
     justify-content: space-between;
+    align-items: center;
         
-    .roundDiv{
-      background-color: lighten($baseGray, 10%);
-      height: 7vw;
-      width: 7vw;
-      border-radius: 50%;
-      text-align: center;
-      justify-content: center;
+    #CountComponentDiv{
+      height: 3.25vw;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
       
-      h3 {
-        font-size: 3rem;
-        margin: 0.15rem;
+      span {
+        font-size: 1.5rem;  
+        margin-left: 1rem;      
       }
 
       p {
-        font-size: 2rem;
-        margin-top: 0;
+        font-size: 0.8rem;
+      }
+    }
+
+    #QueryComponentForm{
+      align-items: center;
+
+      #targetPriceLabel {
+        font-size: 0.8rem;
+      }
+
+      #targetPriceInput {
+        margin-left: 1rem;
+        background-color: $baseGray;
+        border: 0;
+        height: 1.75rem;
+        padding: 0.25rem;
+
+        &:hover {
+          border: 2px solid $blue2;
+          background-color: lighten($baseGray, 15%);
+        }
       }
     }
   }
 }
 
 #tableContainer{
-  // background-color: red;
   margin-top: 2rem;
   min-width: 90vw;
   color: darken($baseGray, 40%);
@@ -94,9 +111,6 @@ body {
       flex: 0 0 10%;
       max-width: 100%;
       min-height: 2rem;
-      // border-left: 1px solid $baseGray;
-      // border-collapse: collapse;
-      // box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.5);
       padding-left: 0.25%;
       margin-left: 0.35%;
       font-size: small;
@@ -105,7 +119,7 @@ body {
       margin-top: 1%;
 
       @media (max-width: 600px) {
-            font-size: 2vw; /* Set font size relative to viewport width */
+            font-size: 2vw; 
       }
     }
 
@@ -114,7 +128,7 @@ body {
     }
 
     .column-destination {
-      flex: 0 0 35%;
+      flex: 0 0 30%;
       max-width: 100%;
       border-collapse: collapse;
       // font-size: small;  

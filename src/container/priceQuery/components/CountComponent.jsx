@@ -20,10 +20,9 @@ import React from "react";
 export default function CountComponent ({ orderCount }) {
   return (
     <>
-      <div id='CountComponentDiv' className="roundDiv">
-        <h3>{orderCount}</h3>
-      </div>
-      {/* <p>orders</p> */}
+      <div id='CountComponentDiv'>
+        <p>ORDERS:<span>{orderCount}</span></p>
+      </div> 
     </>
   )
 }

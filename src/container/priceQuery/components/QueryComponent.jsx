@@ -18,27 +18,18 @@ import React, { useActionState, useState } from "react";
 
 // component
 export default function QueryComponent ({ setTargetPrice }) {
-  // use state
-
-  // action function that update the rows to be display
-  // async function updateOrdersQuery(targetPrice) {
-  //   return targetPrice + ' updated';
-  // }
-  
-  // const [targetPrice, ordersQueryFormAction] = useActionState(updateOrdersQuery, 'target');
-  
   const handleInputValueUpdates = (event) => {
     const { value } = event.target;
     setTargetPrice(Number(value));
   };
 
   return (
-    <div id='QueryComponent'>
-      <form id='QueryComponent' >
-        <label>target price</label>
+    <>
+      <form id='QueryComponentForm' >
+        <label id='targetPriceLabel'>TARGET PRICE:</label>
         {/* <button formAction={ordersQueryFormAction}>targetPrice</button> */}
-        <input type="number" placeholder='00.00' onInput={handleInputValueUpdates}/>
+        <input id='targetPriceInput'type="number" placeholder=' type price here !' onInput={handleInputValueUpdates}/>
       </form> 
-    </div>
+    </>
   )
 }
