@@ -14,7 +14,7 @@ import QueryComponent from "./components/QueryComponent";
 // interfaces & types
 interface PriceQueryContainerProps {
   orderCount: number;
-  setTargetPrice: (price: number) => void; // import
+  setTargetPrice: (price: number) => void;
 }
 
 // component

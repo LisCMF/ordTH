@@ -19,7 +19,7 @@ import { OrdersObj } from './../../types/OrdersObj';
 
 interface TableContainer {
   ordersObj: Map<string, OrdersObj>;
-  setOrderCount: (price: number) => void; // import
+  setOrderCount: (price: number) => void;
   targetPrice: number;
   rowLoading: boolean;
 }

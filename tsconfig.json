@@ -1,7 +1,4 @@
 {
-  /* configuration for ts-node
-  allows ts-node to access the modules in the  
-  globals.d.ts declaration file */
   "ts-node": {
     "files": true
   },
@@ -14,9 +11,6 @@
     "strict": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
-    
-    // "allowImportingTsExtensions": 
-    // "allowImportingTsExtensions": true
   },
   "include": ["./src/**/*"]
 }

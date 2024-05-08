@@ -8,8 +8,8 @@ const path = require('path');
 
 const localhostRegex = /http:\/\/localhost/
 const io = require('socket.io')(http, {
-    cors: { origin: localhostRegex }
-  });
+  cors: { origin: localhostRegex }
+});
 
 const PORT = 4000;
 const DATA_FILE = path.join(__dirname, '../data/order-data.json');
@@ -18,7 +18,6 @@ const DATA_FILE = path.join(__dirname, '../data/order-data.json');
 const orders = JSON.parse(fs.readFileSync(DATA_FILE));
 
 // object to hold array of order made on timestamp (second)
-// {317:[{order event}, {order event}]}
 const byTime = {};
 
 // add orders by the timestamp to byTime properties assigned to arrays

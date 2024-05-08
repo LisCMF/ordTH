@@ -10,7 +10,7 @@
 // dependencies
 import React, { useState , useEffect } from "react";
 import {io, Socket} from 'socket.io-client';
-// import { Socket } from 'socket.io-client';
+
 
 // components
 import HeaderContainer from "./header/HeaderContainer";
@@ -22,18 +22,8 @@ import TableContainer from "./table/TableContainer";
 // connections
 const socket: Socket = io('http://localhost:4000/');
 
-
 // interfaces & types
 import { OrdersObj } from './../types/OrdersObj';
-// export interface OrdersObj {
-//   id: string;
-//   item: string;
-//   event_name: string;
-//   customer: string;
-//   destination: string;
-//   sent_at_second: string;
-//   price: string;
-// }
 
 // component
 export default function MainContainer () {

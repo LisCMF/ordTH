@@ -12,7 +12,7 @@ import React, { ChangeEvent } from "react";
 
 // interfaces & types
 interface QueryComponentProps {
-  setTargetPrice: (price: number) => void; // import
+  setTargetPrice: (price: number) => void;
 }
 
 /** NOTES:
@@ -30,7 +30,6 @@ export default function QueryComponent ({ setTargetPrice} : QueryComponentProps)
     <>
       <form id='QueryComponentForm' >
         <label id='targetPriceLabel'>TARGET PRICE:</label>
-        {/* <button formAction={ordersQueryFormAction}>targetPrice</button> */}
         <input id='targetPriceInput'type="number" placeholder=' type price here !' onInput={handleInputValueUpdates}/>
       </form> 
     </>
