@@ -53,7 +53,7 @@ export default function TableContainer({ ordersObj, setOrderCount, targetPrice, 
       <tbody>
         {rowLoading ? 
         rowArray 
-        : <tr className='processingOrders'> Processing Orders ...</tr>}
+        : <tr><td className='processingOrders'>Processing Orders ...</td></tr>}
       </tbody>
     </table>
   );
