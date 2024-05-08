@@ -1,14 +1,14 @@
 /**
  * ************************************
  * @module  TableContainer
- * @author  LisCMF
+ * @author  LisCMF 
  * @date    02/02/2024
  * @description Component that renders column titles and rows
  * ************************************
  */
 
 // dependencies
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 // components
 import TitleTableContainer from "./title/TitleTableContainer";
@@ -21,12 +21,12 @@ interface TableContainer {
   ordersObj: Map<string, OrdersObj>;
   setOrderCount: (price: number) => void; // import
   targetPrice: number;
+  rowLoading: boolean;
 }
 
-
 // component
-export default function TableContainer({ ordersObj, setOrderCount, targetPrice }: TableContainer) {
-  // Use useMemo to compute rowArray only when ordersObj or targetPrice changes
+export default function TableContainer({ ordersObj, setOrderCount, targetPrice, rowLoading }: TableContainer) {
+  
   let newCount:number = 0;
 
   const rowArray = useMemo(() => {
@@ -51,7 +51,9 @@ export default function TableContainer({ ordersObj, setOrderCount, targetPrice }
         <TitleTableContainer/>
       </thead>
       <tbody>
-        {rowArray}
+        {rowLoading ? 
+        rowArray 
+        : <tr className='processingOrders'> Processing Orders ...</tr>}
       </tbody>
     </table>
   );

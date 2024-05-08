@@ -40,6 +40,7 @@ export default function MainContainer () {
   const [ordersObj, setOrdersObj] = useState<Map<string, OrdersObj>>(new Map()); // State of orders
   const [orderCount, setOrderCount] = useState<number>(0); // State of number of orders rendered
   const [targetPrice, setTargetPrice] = useState<number>(0); // State of target price to query orders
+  const [rowLoading, setRowLoading] = useState<boolean>(false); // State of check if data to load roads is pending
 
   useEffect(() => {
     socket.on('order_event', (orderEvents: OrdersObj[]) => {
@@ -50,7 +51,9 @@ export default function MainContainer () {
         incomingOrdersObj.set(event.id, event);
       });
 
-      setOrdersObj(currentOrders => new Map([...currentOrders, ...incomingOrdersObj]));  
+      setOrdersObj(currentOrders => new Map([...currentOrders, ...incomingOrdersObj])); 
+
+      setRowLoading(true); 
     });
 
     return () => {
@@ -65,7 +68,7 @@ export default function MainContainer () {
         <h1 id='orderManagerH1'>Order Manager</h1>
         <PriceQueryContainer orderCount={orderCount} setTargetPrice={setTargetPrice}/>
       </div>
-      <TableContainer ordersObj={ordersObj} setOrderCount={setOrderCount} targetPrice={targetPrice}/>
+      <TableContainer ordersObj={ordersObj} setOrderCount={setOrderCount} targetPrice={targetPrice} rowLoading={rowLoading}/>
     </div>
   )
 }

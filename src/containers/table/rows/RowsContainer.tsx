@@ -40,9 +40,6 @@ const RowsContainer =  memo((props: RowsContainerProps): JSX.Element => {
     return <CellComponent key={ind} className={`column-${propLabel}`} displayValue={displayValue}/>
   });
 
-  // const classNames = 
-
-  
   return (
     <tr className={'RowsContainer' + ' ' + rowStatus} >
       {cellArr}

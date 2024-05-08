@@ -1,3 +1,4 @@
+// colors
 $greenGray: rgb(140, 159, 140);
 $baseGray: #D4D9DF;
 $cancelGray: #9AA8B6;
@@ -8,10 +9,14 @@ $blue3: #88ACFF;
 $purple4: #AC9FED;
 $purple5: #C194DF;
 
+// Font Families
+$fontRoboto: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
 body {
  padding: 5%;
  padding-top: 2%;
- font-family: Roboto;
+ font-family: $fontRoboto;
 }
 
 #mainContainerTopDiv{
@@ -20,7 +25,7 @@ body {
   #orderManagerH1 {
     color: darken($baseGray, 20%);
     margin: 2%;
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: $fontRoboto;
     font-weight: 400;
   }
 
@@ -131,8 +136,7 @@ body {
     .column-destination {
       flex: 0 0 30%;
       max-width: 100%;
-      border-collapse: collapse;
-      // font-size: small;  
+      border-collapse: collapse; 
     }
 
     .column-id {
@@ -163,7 +167,7 @@ body {
   #trTitleTableContainer {
     .thColumnTitleComponent {
       color: darken($baseGray, 45%);
-      font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: $fontRoboto;
       font-size: 0.85em;  
       font-weight: 400;
       margin-left: 4px;
@@ -257,6 +261,15 @@ body {
     }
   }
   
+  .processingOrders {
+    display: block;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: $fontRoboto;
+    color: $purple4;
+  }
 
 }
 
