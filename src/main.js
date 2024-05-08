@@ -16,7 +16,7 @@ import { createRoot } from 'react-dom/client';
 import './assets/style/style.scss';
 
 // import container
-import MainContainer from './container/MainContainer.jsx'
+import MainContainer from './containers/MainContainer.tsx'
 
 // connect to the root element
 const root = createRoot(document.getElementById('root'));

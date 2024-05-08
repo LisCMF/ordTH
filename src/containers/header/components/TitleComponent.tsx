@@ -7,24 +7,14 @@
  * ************************************
  */
 
-// dependencies
-
-import React from "react";
-
-
 // images
-const icon = '../../../assets/images/order_manger_icon.PNG';
-
-// utilities
-
-// interfaces & types
+const icon:string = '../../../assets/images/order_manger_icon.PNG';
 
 // component
 export default function TitleComponent () {
   return (
     <>
-      <img id="imageIcon" src={icon}/>
-      <header id='TitleComponentHeader'></header>
+      <img id="imageIcon" alt='Image (with the text OM) used as Order Manager icon' src={icon}/>
     </>
   )
 }

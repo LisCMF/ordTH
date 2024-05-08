@@ -8,15 +8,16 @@
  */
 
 // dependencies
-import React, {memo} from "react";
-// components
-
-// utilities
+import {memo} from "react";
 
 // interfaces & types
+interface CellComponentProps {
+  className: string;
+  displayValue: string;
+}
 
 // component
-const CellComponent = memo(({className, displayValue}) => {
+const CellComponent = memo(({className, displayValue}: CellComponentProps) => {
   if (displayValue[6]==='_') {
     displayValue = displayValue.substring(0, 5) + ' ' + displayValue.substring(7);
   };

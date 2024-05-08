@@ -7,22 +7,21 @@
  * ************************************
  */
 
-// dependencies
-import React from "react";
-
 // components
-import CountComponent from "./components/CountComponent.jsx";
-import QueryComponent from "./components/QueryComponent.jsx";
-
-// utilities
+import CountComponent from "./components/CountComponent";
+import QueryComponent from "./components/QueryComponent";
 
 // interfaces & types
+interface PriceQueryContainerProps {
+  orderCount: number;
+  setTargetPrice: (price: number) => void; // import
+}
 
 // component
-export default function PriceQueryContainer ({ orderCount, setTargetPrice }) {
+export default function PriceQueryContainer ({ orderCount, setTargetPrice } : PriceQueryContainerProps): JSX.Element {
   return (
     <div id='PriceQueryContainerDiv'>
-      <CountComponent orderCount={orderCount}/>
+      <CountComponent orderCount={`${orderCount}`}/>
       <QueryComponent setTargetPrice={setTargetPrice}/>
     </div>
   )

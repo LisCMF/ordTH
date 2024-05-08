@@ -7,17 +7,14 @@
  * ************************************
  */
 
-// dependencies
-import React from "react";
-
-// components
-
-// utilities
-
 // interfaces & types
+interface ColumnTitleComponentProps {
+  titleText: string; 
+  columnClass: string;
+}
 
 // component
-export default function ColumnTitleComponent ({titleText, columnClass}) {
+export default function ColumnTitleComponent ({titleText, columnClass}: ColumnTitleComponentProps) {
   return (
     <th id={titleText} className={columnClass + ' thColumnTitleComponent'}>
       {titleText}

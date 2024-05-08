@@ -7,17 +7,13 @@
  * ************************************
  */
 
-// dependencies
-import React from "react";
-
-// components
-
-// utilities
-
 // interfaces & types
+interface CountComponentProps {
+  orderCount: string; 
+}
 
 // component
-export default function CountComponent ({ orderCount }) {
+export default function CountComponent ({ orderCount }: CountComponentProps): JSX.Element {
   return (
     <>
       <div id='CountComponentDiv'>

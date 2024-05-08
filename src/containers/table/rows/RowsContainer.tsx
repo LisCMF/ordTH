@@ -11,15 +11,24 @@
 import React, {memo, useMemo, useState} from "react";
 
 // components
-import CellComponent from "./components/CellComponent.jsx";
+import CellComponent from "./components/CellComponent";
 
 // utilities
 import orderStatus from '../../utilities/orderStatus.js';
 
 // interfaces & types
+interface RowsContainerProps {
+  id: string, 
+  item: string, 
+  event_name: string, 
+  customer: string, 
+  destination: string, 
+  sent_at_second: string, 
+  price: string
+}
 
 // component
-const RowsContainer =  memo((props) => {
+const RowsContainer =  memo((props: RowsContainerProps): JSX.Element => {
   const rowStatus = useMemo(() => {
     console.log('orderStatus(props.event_name) --> ', orderStatus(props.event_name));
     return orderStatus(props.event_name);
@@ -27,7 +36,7 @@ const RowsContainer =  memo((props) => {
 
 
   // render a cell per prop
-  const cellArr = Object.entries(props).map(([propLabel, displayValue], ind)=> {
+  const cellArr: JSX.Element[] = Object.entries(props).map(([propLabel, displayValue], ind)=> {
     return <CellComponent key={ind} className={`column-${propLabel}`} displayValue={displayValue}/>
   });
 

@@ -11,14 +11,10 @@
 import React from "react";
 
 // components
-import TitleComponent from "./components/TitleComponent.jsx";
-
-// utilities
-
-// interfaces & types
+import TitleComponent from "./components/TitleComponent";
 
 // component
-export default function HeaderContainer () {
+export default function HeaderContainer (): JSX.Element {
   return (
     <div id='HeaderContainerDiv'>
       <TitleComponent/>

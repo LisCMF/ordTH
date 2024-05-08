@@ -9,29 +9,41 @@
 
 // dependencies
 import React, { useState , useEffect } from "react";
-import {io} from 'socket.io-client';
+import {io, Socket} from 'socket.io-client';
+// import { Socket } from 'socket.io-client';
 
 // components
-import HeaderContainer from "./header/HeaderContainer.jsx";
-import PriceQueryContainer from "./priceQuery/PriceQueryContainer.jsx";
-import TableContainer from "./table/TableContainer.jsx";
+import HeaderContainer from "./header/HeaderContainer";
+import PriceQueryContainer from "./priceQuery/PriceQueryContainer";
+import TableContainer from "./table/TableContainer";
 
 // utilities 
 
 // connections
-const socket = io.connect('http://localhost:4000/');
+const socket: Socket = io('http://localhost:4000/');
+
 
 // interfaces & types
+import { OrdersObj } from './../types/OrdersObj';
+// export interface OrdersObj {
+//   id: string;
+//   item: string;
+//   event_name: string;
+//   customer: string;
+//   destination: string;
+//   sent_at_second: string;
+//   price: string;
+// }
 
 // component
 export default function MainContainer () {
-  const [ordersObj, setOrdersObj] = useState(new Map()); // State of orders
-  const [orderCount, setOrderCount] = useState(0); // State of number of orders rendered
-  const [targetPrice, setTargetPrice] = useState(0); // State of target price to query orders
+  const [ordersObj, setOrdersObj] = useState<Map<string, OrdersObj>>(new Map()); // State of orders
+  const [orderCount, setOrderCount] = useState<number>(0); // State of number of orders rendered
+  const [targetPrice, setTargetPrice] = useState<number>(0); // State of target price to query orders
 
   useEffect(() => {
-    socket.on('order_event', (orderEvents) => {
-      const incomingOrdersObj = new Map()
+    socket.on('order_event', (orderEvents: OrdersObj[]) => {
+      const incomingOrdersObj = new Map<string, OrdersObj>()
       
       // Update incomingOrdersObj with new events
       orderEvents.forEach(event => { 

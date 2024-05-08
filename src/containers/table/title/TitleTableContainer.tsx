@@ -8,19 +8,15 @@
  */
 
 // dependencies
-import React, { memo } from "react";
+import { memo } from "react";
 
 // components
-import ColumnTitleComponent from "./components/ColumnTitleComponent.jsx";
-
-// utilities
-
-// interfaces & types
+import ColumnTitleComponent from "./components/ColumnTitleComponent";
 
 // component
-const TitleTableContainer = memo(({}) => {
-  // array of column's titles and related cell category
-  const tableTitles = [
+const TitleTableContainer = memo((): JSX.Element => {
+  // array of column's titles and related cell category - prioritizing reliability of sass styles
+  const tableTitles: string[][] = [
     ['Order ID', 'id'], 
     ['Item', 'item'], 
     ['Order Status', 'event_name'], 
@@ -30,11 +26,9 @@ const TitleTableContainer = memo(({}) => {
     ['Price $US', 'price']
   ];
  
- 
-  const arrOfColumnTitleComponents = tableTitles.map(([titleText, cellType], ind) => {
+  const arrOfColumnTitleComponents: JSX.Element[] = tableTitles.map(([titleText, cellType], ind) => {
     return <ColumnTitleComponent key={ind} titleText={titleText} columnClass={`column-${cellType}`}/> 
   })
-
 
   return (
     <tr id='trTitleTableContainer'>

@@ -8,17 +8,20 @@
  */
 
 // dependencies
-import React, { useActionState, useState } from "react";
-
-// components
-
-// utilities
+import React, { ChangeEvent } from "react";
 
 // interfaces & types
+interface QueryComponentProps {
+  setTargetPrice: (price: number) => void; // import
+}
+
+/** NOTES:
+ * This module can be update in july 2024 to implement optimized React v19 form hooks
+*/
 
 // component
-export default function QueryComponent ({ setTargetPrice }) {
-  const handleInputValueUpdates = (event) => {
+export default function QueryComponent ({ setTargetPrice} : QueryComponentProps) {
+  const handleInputValueUpdates = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setTargetPrice(Number(value));
   };
