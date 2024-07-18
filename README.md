@@ -1,4 +1,4 @@
-# Our Order Manager Application Setup Guide !
+# Order Manager Application Setup Guide !
 
 This small guide will help you run the Order Manager application. 
 ![alt text](image.png)
